@@ -19,6 +19,7 @@ public class ReusableMethods {
 
     public static void goToUrl() {
         Driver.getDriver().get(ConfigReader.getProperty("mainUrl"));
+
     }
 
 
