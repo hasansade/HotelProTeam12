@@ -41,15 +41,15 @@ public class ReusableMethods {
             loginPage.loginLink.click();
         }
 
-        loginPage.usernameBox.sendKeys(new CharSequence[]{ConfigReader.getProperty("validUserName")});
-        loginPage.passwordBox.sendKeys(new CharSequence[]{ConfigReader.getProperty("validPassword")});
+        loginPage.usernameBox.sendKeys(ConfigReader.getProperty("validUserName"));
+        loginPage.passwordBox.sendKeys(ConfigReader.getProperty("validPassword"));
         loginPage.loginButton.click();
     }
 
 
     public static void waitFor(int sec) {
         try {
-            Thread.sleep((long) (sec * 1000));
+            Thread.sleep((sec * 3));
         } catch (InterruptedException var2) {
             var2.printStackTrace();
         }
@@ -58,7 +58,7 @@ public class ReusableMethods {
 
     public static void scrollTo(WebElement element) {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) Driver.getDriver();
-        javascriptExecutor.executeScript("arguments[0].scrollIntoView(true);", new Object[]{element});
+        javascriptExecutor.executeScript("arguments[0].scrollIntoView(true);");
         waitFor(2);
     }
 
