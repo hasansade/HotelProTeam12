@@ -24,8 +24,10 @@ public class TC_002  extends TestBase {
         us_004Page.hotelList.click();
 
 
-
-
+        String arananCumle= "List Of Hotels";
+        String actuelTittle= driver.getTitle();
+        Assert.assertTrue(actuelTittle.contains(arananCumle), "liste görülmedi");
+        
 
     }
 

@@ -20,8 +20,7 @@ public class US_004Page {
     @FindBy(xpath = "/html/body/div[3]/div[2]/div/div[3]/div/div/div[1]/div[2]/a/span")
     public static WebElement addHotel;
 
-    @FindBy(xpath = "///*[@id=\"Code\"]")
-    public static WebElement addCode;
+
 
 
 
