@@ -26,10 +26,7 @@ public class TC_003  extends  TestBase{
         us_004Page.hotelList.click();
         us_004Page.addHotel.click();
 
-        WebElement codeKutusu = driver.findElement(By.id("Code"));
 
-        actions.click(codeKutusu)
-                .sendKeys("sfasf").perform();
 
     }
 
