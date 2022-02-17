@@ -21,15 +21,19 @@ public abstract class TestBase {
 
     protected  WebDriver driver;
 
-    @BeforeMethod
-    public void setUp(){
+    /* @BeforeMethod
+     public void setUp(){
 
-        WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+         WebDriverManager.chromedriver().setup();
+         driver=new ChromeDriver();
+         driver.manage().window().maximize();
+         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
-    }
+
+
+     }
+
+     */
     @AfterMethod
     public void tearDown(){
 
