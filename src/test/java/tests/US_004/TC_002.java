@@ -8,9 +8,10 @@ import org.testng.asserts.SoftAssert;
 import pages.US_004Page;
 import utilities.ReusableMethods;
 import utilities.TestBase;
+import utilities.TestBaseRapor;
 
 
-public class TC_002  extends TestBase {
+public class TC_002  extends TestBaseRapor {
 
     @Test
     public void test(){
@@ -22,13 +23,9 @@ public class TC_002  extends TestBase {
         ReusableMethods.login();
         us_004Page.hotelManagement.click();
         us_004Page.hotelList.click();
+        us_004Page.addHotel.isDisplayed();
 
-
-        String arananCumle= "List Of Hotels";
-        String actuelTittle= driver.getTitle();
-        Assert.assertTrue(actuelTittle.contains(arananCumle), "liste görülmedi");
-        
-
+        extentTest = extentReports.createTest("TC_002 from US_004 ", "List of Hotels gorunur");
     }
 
 }
