@@ -54,7 +54,7 @@ public abstract class TestBaseRapor {
         extentHtmlReporter.config().setReportName("HotelMyCamp Automation Reports");
     }
     // Her test methodundan sonra eğer testte hata varsa, ekran görüntüsü alıp rapora ekliyor
-    @AfterMethod(alwaysRun = true)
+   /* @AfterMethod(alwaysRun = true)
     public void tearDownMethod(ITestResult result) throws IOException {
         if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa
             String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
@@ -66,6 +66,8 @@ public abstract class TestBaseRapor {
         }
        // Driver.closeDriver();
     }
+
+    */
     // Raporlandırmayı sonlandırmak icin
     @AfterTest(alwaysRun = true)
     public void tearDownTest() {
