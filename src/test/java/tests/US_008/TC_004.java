@@ -1,6 +1,7 @@
 package tests.US_008;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -22,6 +23,8 @@ public class TC_004 extends TestBaseRapor {
         US_008Page us_008Page = new US_008Page();
         Actions actions = new Actions(Driver.getDriver());
         Faker faker = new Faker();
+
+
 
         ReusableMethods.waitForPageToLoad(3L);
         us_008Page.hotelManagementLinki.click();
@@ -56,12 +59,20 @@ public class TC_004 extends TestBaseRapor {
                 .sendKeys(Keys.TAB)
                 .sendKeys(ConfigReader.getProperty("noteAddRoomReservation"))
                 .sendKeys(Keys.TAB).perform();
-        ReusableMethods.scrollTo(us_008Page.createHotelroomreservationSaveButonu);
+
+        ((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[0].scrollIntoView();", us_008Page.createHotelroomreservationSaveButonu);
+
+
+        ReusableMethods.waitFor(1);
         us_008Page.createHotelroomreservationSaveButonu.click();
         ReusableMethods.waitFor(2);
         Assert.assertTrue(us_008Page.hotelWasInsertedSuccessfullyYazısı.isDisplayed(), "Rezervasyon Onay mesaji alinamadi.");
         ReusableMethods.waitFor(2);
         us_008Page.hotelWasInsertedSuccessfullyOkButonu.click();
+
+        extentTest = extentReports.createTest("TC_004 from US_008 ", "Basarili Hotelroomreservatıon yapildi");
+        extentTest.pass("Hotelroomreservatıon yapıldı");
+
     }
 
 }

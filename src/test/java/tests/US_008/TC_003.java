@@ -20,6 +20,7 @@ public class TC_003 extends TestBaseRapor {
         us_008Page.roomReservationLinki.click();
         ReusableMethods.waitForClickablility(us_008Page.addRoomReservationButonu, 2);
         extentTest = extentReports.createTest("TC_003 from US_008 ", "Create Hotelroomreservatıon goruldu");
+        extentTest.pass("Hotelroomreservatıon goruldu");
     }
 
 }
