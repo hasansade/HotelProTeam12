@@ -2,6 +2,7 @@
 <suite name="US_0008">
     <test name="All Test Cases">
         <packages>
+
             <package name="src/test/java/tests/US_008"></package>
         </packages>
     </test>
