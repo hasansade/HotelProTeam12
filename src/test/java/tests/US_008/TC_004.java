@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.US_008Page;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -66,13 +67,15 @@ public class TC_004 extends TestBaseRapor {
         ReusableMethods.waitFor(1);
         us_008Page.createHotelroomreservationSaveButonu.click();
         ReusableMethods.waitFor(2);
-        Assert.assertTrue(us_008Page.hotelWasInsertedSuccessfullyYazısı.isDisplayed(), "Rezervasyon Onay mesaji alinamadi.");
+       // Assert.assertTrue(us_008Page.roomReservationWasInsertedSuccessfullyOkButonu.isDisplayed(), "Rezervasyon Onay mesaji alinamadi.");
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertFalse(us_008Page.roomReservationWasInsertedSuccessfullyOkButonu.isDisplayed());
         ReusableMethods.waitFor(2);
-        us_008Page.hotelWasInsertedSuccessfullyOkButonu.click();
+        us_008Page.roomReservationWasInsertedSuccessfullyOkButonu.click();
 
         extentTest = extentReports.createTest("TC_004 from US_008 ", "Basarili Hotelroomreservatıon yapildi");
         extentTest.pass("Hotelroomreservatıon yapıldı");
-
+        softAssert.assertAll();
     }
 
 }
