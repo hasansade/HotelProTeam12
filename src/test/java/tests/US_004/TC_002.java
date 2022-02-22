@@ -1,16 +1,13 @@
 package tests.US_004;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 import pages.US_004Page;
 import utilities.ReusableMethods;
-import utilities.TestBase;
+import utilities.TestBaseRapor;
 
 
-public class TC_002  extends TestBase {
+public class TC_002  extends TestBaseRapor {
 
     @Test
     public void test(){
@@ -21,13 +18,11 @@ public class TC_002  extends TestBase {
 
         ReusableMethods.login();
         us_004Page.hotelManagement.click();
+        ReusableMethods.waitFor(1);
         us_004Page.hotelList.click();
 
-
-        String arananCumle= "List Of Hotels";
-        String actuelTittle= driver.getTitle();
-        Assert.assertTrue(actuelTittle.contains(arananCumle), "liste görülmedi");
-        
+        Assert.assertTrue(us_004Page.addHotel.isDisplayed(), " Add Hotel butonu görülmedi");
+        extentTest = extentReports.createTest("TC_003 from US_004" , "Add Hotel butonu görüldü");
 
     }
 
