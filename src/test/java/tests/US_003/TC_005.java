@@ -65,7 +65,7 @@ public class TC_005 extends TestBaseRapor {
         Assert.assertTrue(US_003Page.userDataWasInsertedAllert.isDisplayed(), "User Data was inserted successfully alerti görülmedi");
         US_003Page.userDataWasInsertedOk.click();
 
-        extentTest = extentReports.createTest("TC_002 from US_003" , "User Data was inserted successfully alerti görüldü" +
+        extentTest = extentReports.createTest("TC_005 from US_003" , "User Data was inserted successfully alerti görüldü" +
                 " ve  ok butonuna tiklandi");
 
 
