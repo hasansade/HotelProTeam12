@@ -2,17 +2,16 @@ package tests.US_008;
 
 import org.testng.annotations.Test;
 import utilities.ReusableMethods;
-import utilities.TestBase;
+import utilities.TestBaseRapor;
 
-public class TC_001 extends TestBase{
+public class TC_001 extends TestBaseRapor {
 
-
+    public TC_001() {
+    }
 
     @Test
     public void test() {
-
         ReusableMethods.login();
-
+        extentTest= extentReports.createTest("TC_001 anasayfaya Login olundu");
     }
-
 }

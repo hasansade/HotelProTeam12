@@ -17,6 +17,23 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class TestBaseRapor {
 
+    protected WebDriver driver;
+
+    @BeforeMethod
+    public void setUp(){
+
+        WebDriverManager.chromedriver().setup();
+        driver=new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+    }
+    @AfterMethod
+    public void tearDown(){
+
+        //   driver.quit();
+    }
+
     protected static ExtentReports extentReports; //extent report'a ilk atamayi yapar
     protected static ExtentTest extentTest; // test pass veya failed gibi bilgileri kaydeder. Ayrica ekran resmi icin de kullaniriz
     protected static ExtentHtmlReporter extentHtmlReporter; // Html raporu duzenler
@@ -50,7 +67,7 @@ public abstract class TestBaseRapor {
         extentHtmlReporter.config().setReportName("HotelMyCamp Automation Reports");
     }
     // Her test methodundan sonra eğer testte hata varsa, ekran görüntüsü alıp rapora ekliyor
-    @AfterMethod(alwaysRun = true)
+    //@AfterMethod(alwaysRun = true)
     public void tearDownMethod(ITestResult result) throws IOException {
         if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa
             String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
@@ -60,7 +77,11 @@ public abstract class TestBaseRapor {
         } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
             extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
         }
+<<<<<<< HEAD
        Driver.closeDriver();
+=======
+        // Driver.closeDriver();
+>>>>>>> main
     }
     // Raporlandırmayı sonlandırmak icin
     @AfterTest(alwaysRun = true)
@@ -68,6 +89,4 @@ public abstract class TestBaseRapor {
 
         extentReports.flush();
     }
-
-
 }
