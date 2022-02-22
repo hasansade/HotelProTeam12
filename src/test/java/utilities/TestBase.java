@@ -1,6 +1,8 @@
 package utilities;
 
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -20,8 +22,8 @@ public abstract class TestBase {
 
 
     protected  WebDriver driver;
-
-    /* @BeforeMethod
+    protected static ExtentTest extentTest;
+    @BeforeMethod
      public void setUp(){
 
          WebDriverManager.chromedriver().setup();
@@ -33,7 +35,7 @@ public abstract class TestBase {
 
      }
 
-     */
+
     @AfterMethod
     public void tearDown(){
 

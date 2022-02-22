@@ -10,19 +10,20 @@ import utilities.ConfigReader;
 import utilities.Driver;
 
 
-public class TC_001 extends TestBase {
+public class TC_005 extends TestBase {
 
     US_001Page us_001Page;
     @Test
-    public void tC_0001 (){
+    public void tC_0005 (){
         us_001Page = new US_001Page();
 
         ReusableMethods.goToUrl();
 
         SoftAssert softAssert = new SoftAssert();
 
-        softAssert.assertFalse(us_001Page.welcomeToOurHotelPart.isDisplayed(),"Test for visibility of 'wellcome Text' is passed");
+        softAssert.assertTrue(us_001Page.contactLink.isDisplayed(),"Test for visibility of 'contact Link' is failed!");
 
+        us_001Page.contactLink.click();
 
     }
 

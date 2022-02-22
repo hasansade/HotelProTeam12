@@ -5,7 +5,9 @@ import utilities.ReusableMethods;
 import utilities.TestBaseRapor;
 
 public class TC_001 extends TestBaseRapor {
-
+    /*
+        "Welcome to our hotel" yazısı gorunur olmali.
+         */
     public TC_001() {
     }
 
