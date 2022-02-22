@@ -36,10 +36,10 @@ public class ReusableMethods {
 
         goToUrl();
         loginPage.loginLink.click();
-        /*if (!Driver.getDriver().getCurrentUrl().equals(ConfigReader.getProperty("mainUrl"))) {
+        if (!Driver.getDriver().getCurrentUrl().equals(ConfigReader.getProperty("mainUrl"))) {
             goToUrl();
             loginPage.loginLink.click();
-        }*/
+        }
 
         loginPage.usernameBox.sendKeys(new CharSequence[]{ConfigReader.getProperty("validUserName")});
         loginPage.passwordBox.sendKeys(new CharSequence[]{ConfigReader.getProperty("validPassword")});
