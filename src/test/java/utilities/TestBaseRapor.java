@@ -38,6 +38,19 @@ public abstract class TestBaseRapor {
     protected static ExtentTest extentTest; // test pass veya failed gibi bilgileri kaydeder. Ayrica ekran resmi icin de kullaniriz
     protected static ExtentHtmlReporter extentHtmlReporter; // Html raporu duzenler
     // Test işlemine başlamadan hemen önce (test methodundan önce değil, tüm test işleminden önce)
+
+    protected WebDriver driver;
+
+    @BeforeMethod
+    public void setUp(){
+
+        WebDriverManager.chromedriver().setup();
+        driver=new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+
+    }
+
     @BeforeTest(alwaysRun = true) // alwaysRun : her zaman çalıştır.
     public void setUpTest() {
         extentReports = new ExtentReports();
@@ -64,7 +77,11 @@ public abstract class TestBaseRapor {
         } else if (result.getStatus() == ITestResult.SKIP) { // eğer test çalıştırılmadan geçilmezse
             extentTest.skip("Test Case is skipped: " + result.getName()); // Ignore olanlar
         }
+<<<<<<< HEAD
+       Driver.closeDriver();
+=======
         // Driver.closeDriver();
+>>>>>>> main
     }
     // Raporlandırmayı sonlandırmak icin
     @AfterTest(alwaysRun = true)
