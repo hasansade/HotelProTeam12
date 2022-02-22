@@ -36,14 +36,12 @@ public class US_008Page {
     @FindBy(id= "Price")
     public WebElement priceBox;
 
-    @FindBy(id= "btnSubmit")
+    @FindBy(id = "btnSubmit")
     public WebElement createHotelroomreservationSaveButonu;
 
-    @FindBy(xpath = "//div[@class='bootbox-body']")
-    public WebElement hotelWasInsertedSuccessfullyYazısı;
-
     @FindBy(xpath = "//button[@class='btn btn-primary']")
-    public WebElement hotelWasInsertedSuccessfullyOkButonu;
+    public WebElement roomReservationWasInsertedSuccessfullyOkButonu;
+
 
 
 }
