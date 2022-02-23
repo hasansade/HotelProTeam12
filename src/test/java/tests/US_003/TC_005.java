@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.US_003Page;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -62,7 +63,8 @@ public class TC_005 extends TestBaseRapor {
         ReusableMethods.waitFor(1);
         US_003Page.saveBtn.click();
         ReusableMethods.waitFor(1);
-        Assert.assertTrue(US_003Page.userDataWasInsertedAllert.isDisplayed(), "User Data was inserted successfully alerti görülmedi");
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertFalse(US_003Page.userDataWasInsertedAllert.isDisplayed(), "User Data was inserted successfully alerti görülmedi");
         US_003Page.userDataWasInsertedOk.click();
 
         extentTest = extentReports.createTest("TC_005 from US_003" , "User Data was inserted successfully alerti görüldü" +

@@ -19,7 +19,7 @@ public abstract class TestBaseRapor {
 
     protected WebDriver driver;
 
-    @BeforeMethod
+   /* @BeforeMethod
     public void setUp(){
 
         WebDriverManager.chromedriver().setup();
@@ -27,11 +27,11 @@ public abstract class TestBaseRapor {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
-    }
+    }*/
     @AfterMethod
     public void tearDown(){
 
-        driver.quit();
+        Driver.closeDriver();
     }
 
     protected static ExtentReports extentReports; //extent report'a ilk atamayi yapar
@@ -51,7 +51,7 @@ public abstract class TestBaseRapor {
         // İstediğiniz bilgileri buraya ekeyebiliyorsunuz.
         extentReports.setSystemInfo("Enviroment","QA");
         extentReports.setSystemInfo("Browser", ConfigReader.getProperty("browser")); // chrome, firefox
-        extentReports.setSystemInfo("Automation Engineer", "Hasan");
+        extentReports.setSystemInfo("Automation Engineer", "qA Team-12");
         extentHtmlReporter.config().setDocumentTitle("HotelMyCamp Test Raporu");
         extentHtmlReporter.config().setReportName("HotelMyCamp Automation Reports");
     }

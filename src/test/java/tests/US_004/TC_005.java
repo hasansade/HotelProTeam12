@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.US_004Page;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -17,7 +18,7 @@ public class TC_005  extends TestBaseRapor {
 
     @Test
     public void test(){
-
+        driver.close();
         US_004Page us_004Page = new US_004Page();
         Actions actions = new Actions(Driver.getDriver());
         Faker faker = new Faker();
@@ -50,8 +51,9 @@ public class TC_005  extends TestBaseRapor {
         ReusableMethods.waitFor(1);
     US_004Page.saveBtn.click();
     ReusableMethods.waitFor(3);
-    Assert.assertTrue(us_004Page.hotelWasInsertedText.isDisplayed(), "Hotel was inserted successfully yazısı görülmedi");
-    Assert.assertTrue(us_004Page.okBtn.isDisplayed(), "Ok butonu görülmedi");
+    SoftAssert softAssert=new SoftAssert();
+    softAssert.assertFalse(us_004Page.hotelWasInsertedText.isDisplayed(), "Hotel was inserted successfully yazısı görülmedi");
+    softAssert.assertFalse(us_004Page.okBtn.isDisplayed(), "Ok butonu görülmedi");
 
     us_004Page.okBtn.click();
 
